@@ -1,8 +1,21 @@
 {
     "workbench.colorTheme": "Tokyo Night",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "typescript.updrateImportsOnFileMove.enabled": "always"
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false
+    },
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false
 }

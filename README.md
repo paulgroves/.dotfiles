@@ -5,13 +5,15 @@
 #### Clone the repository
 
 ```bash
-git clone git@github.com:Lacampe/dotfiles.git ~/.dotfiles
+git clone git@github.com:paulgroves/dotfiles.git ~/.dotfiles
 ```
+
+This will prompt you to install git via Xcode developer tools.
 
 #### Bootstrap the installers and configurations
 
 ```bash
-(cd ~/.dotfiles && ./bootstrap)
+(cd ~/.dotfiles && ./bootstrap.sh)
 ```
 
 #### Useful aliases

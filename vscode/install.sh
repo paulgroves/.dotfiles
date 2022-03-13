@@ -3,11 +3,23 @@
 set -e
 
 EXTENSIONS=(
-	"bungcip.better-toml" \
-	"Prisma.prisma" \
-	"ms-vscode-remote.remote-containers" \
-	"enkia.tokyo-night" \
-	"ms-azuretools.vscode-docker"
+	# "Ayushh.vscode-anchor" \
+	# "bungcip.better-toml" \
+	# "Compulim.vscode-clock" \
+	# "eamodio.gitlens"
+	# "enkia.tokyo-night" \
+	# "GitHub.copilot"
+	# "golang.go" \
+	# "hashicorp.terraform" \
+	# "ms-azuretools.vscode-docker" \
+	# "ms-python.python" \
+	# "ms-python.vscode-pylance" \
+	# "ms-vscode-remote.remote-containers" \
+	# "ms-vscode.vscode-typescript-next" \
+	# "Prisma.prisma" \
+	# "rebornix.ruby" \
+	# "rust-lang.rust" \
+	# "vadimcn.vscode-lldb"  
 )
 
 for EXTENSION in ${EXTENSIONS[@]}

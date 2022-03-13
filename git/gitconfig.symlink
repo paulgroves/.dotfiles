@@ -1,6 +1,10 @@
 [user]
-  name = Romain Campech
-  email = romain.campech@gmail.com
+  name = Paul Groves
+  email = <<EMAIL>>
+	signingkey = 8A8B1463F1684911
+
+[commit]
+  gpgsign = true
 
 [credential]
   helper = osxkeychain
@@ -11,6 +15,9 @@
 
 [init]
     defaultBranch = main
+
+[pull]
+    rebase = true
 
 [help]
   autocorrect = prompt
@@ -23,3 +30,8 @@
 
 [includeIf "gitdir:~/workspace/tto/**"]
   path = "~/workspace/tto/.gitconfig-tto"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

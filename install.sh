@@ -2,4 +2,4 @@
 
 set -e
 
-find . -name install.sh -mindepth 2 | while read installer; do sh -c $installer; done
+cd ~/.dotfiles && find . -name install.sh -mindepth 2 | sort | while read installer; do sh -c $installer; done

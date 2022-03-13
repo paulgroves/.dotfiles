@@ -4,7 +4,7 @@ set -e
 
 brew update
 
-(cd ~/.dotfiles/homebrew && brew bundle)
+(cd ~/.dotfiles/02_homebrew && brew bundle --file Brewfile)
 
 brew upgrade
 

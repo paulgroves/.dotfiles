@@ -2,13 +2,13 @@
 
 set -e
 
-# Hotspot
-mas install 771076721
-
 # Spark
 mas install 1176895641
 
-# Trello
-mas install 1278508951
+# Tweetdeck
+mas install 485812721
+
+# Xcode
+# mas install 497799835
 
 mas upgrade

@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 set -e
@@ -6,14 +7,17 @@ DOTFILES_ROOT=$(pwd -P)
 
 create_workspace_directory()
 {
-	mkdir -p ~/workspace
+	sudo mkdir -p ~/workspace
 }
 
 install_homebrew()
 {
 	if test ! $(which brew); then
 		echo "Installing Homebrew..."
-		/bin/bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
+    	eval "$(/opt/homebrew/bin/brew shellenv)"
 	else 
 		echo "Updating Homebrew..."
 		brew update
@@ -96,3 +100,4 @@ install_homebrew
 symlink_dotfiles
 run_installers
 authenticate_github_cli
+$HOME/.dotfiles/macos/set-defaults.sh``

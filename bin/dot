@@ -2,6 +2,25 @@
 
 set -e
 
-$HOME/.dotfiles/install.sh
+while getopts e: flag
+do
+  case "${flag}" in
+    e) email=${OPTARG};;
+  esac
+done
 
-$HOME/.dotfiles/macos/set-defaults.sh
+if [ -z "$email" ]
+then
+  echo "ERROR: Email argument (-e) is required"
+  exit 1
+else
+  export DOTFILE_EMAIL=$email
+
+  echo "Running all installers..."
+  $HOME/.dotfiles/install.sh
+
+  echo "Setting macOS defaults..."
+  $HOME/.dotfiles/macos/set-defaults.sh
+fi
+
+source ~/.zshrc
