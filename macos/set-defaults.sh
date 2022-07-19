@@ -22,13 +22,12 @@ defaults write com.apple.dock persistent-apps -array \
 	"$(dock_item /Applications/Brave\ Browser.app)" \
 	"$(dock_item /Applications/Visual\ Studio\ Code.app)" \
 	"$(dock_item /Applications/GitHub\ Desktop.app)" \
-	"$(dock_item /Applications/Hyper.app)" \
+	"$(dock_item /Applications/Warp.app)" \
 	"$(dock_item /Applications/Paw.app)" \
 	"$(dock_item /Applications/Postico.app)" \
 	"$(dock_item /Applications/Dash.app)" \
 	"$(dock_item /Applications/Discord.app)" \
 	"$(dock_item /Applications/Notion.app)" \
-	"$(dock_item /Applications/TweetDeck.app)" \
 	"$(dock_item /System/Applications/Music.app)" \
 	"$(dock_item /Applications/zoom.us.app)" \
 	"$(dock_item /System/Applications/System\ Preferences.app)" 
@@ -62,7 +61,7 @@ defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "true"
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
 
 # Set Desktop Picture
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Monterey Graphic.heic"'
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Gold.png"'
 
 ################
 # Restart apps #

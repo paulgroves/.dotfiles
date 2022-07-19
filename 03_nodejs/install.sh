@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
+# #!/usr/bin/env bash
 
-set -e
+# set -e
 
-echo "Installing global packages"
-npm update -g \
-  npm-check-updates \
-  @vue/cli \
-  typescript \
-  serverless \
-  yarn
+# echo "Installing global packages"
+# npm install -g \
+#   @vue/cli \
+#   typescript \
+#   serverless \
+#   yarn
 
-ncu -g
+# npm -g install npm@8.8.0

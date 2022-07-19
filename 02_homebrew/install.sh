@@ -6,6 +6,6 @@ brew update
 
 (cd ~/.dotfiles/02_homebrew && brew bundle --file Brewfile)
 
-brew upgrade
+brew upgrade || true
 
-brew cleanup
+brew cleanup || true

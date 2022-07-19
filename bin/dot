@@ -22,5 +22,3 @@ else
   echo "Setting macOS defaults..."
   $HOME/.dotfiles/macos/set-defaults.sh
 fi
-
-source ~/.zshrc

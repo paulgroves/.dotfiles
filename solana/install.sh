@@ -8,6 +8,8 @@ then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
   source $HOME/.cargo/env
   rustup component add rustfmt
+else
+  rustup update
 fi
 
 if ! command -v solana &> /dev/null

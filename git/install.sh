@@ -3,11 +3,16 @@
 set -e
 
 NAME="Paul Groves"
-EMAIL=<< EMAIL >>
+EMAIL=$DOTFILE_EMAIL
+
+git config --global user.name "${NAME}"
+git config --global user.email $EMAIL
 
 EXISTING_KEY=$(gpg --list-keys | grep $EMAIL | awk '{print $6}')
 
 if [ ! -z "${EXISTING_KEY}" ]; then
+    key_id=$(gpg --list-secret-keys --keyid-format=long --with-colons | head -1 | cut -d ':' -f5)
+    git config --global user.signingkey $key_id
     echo "Key exists: $EXISTING_KEY"
 else
     echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf 
