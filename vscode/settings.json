@@ -33,6 +33,6 @@
   "workbench.list.smoothScrolling": true,
   "workbench.startupEditor": "none",
   "window.openFoldersInNewWindow": "off",
-  "workbench.editor.closeEmptyGroups": false,
+  "workbench.editor.closeEmptyGroups": true,
   "npm.keybindingsChangedWarningShown": true
 }

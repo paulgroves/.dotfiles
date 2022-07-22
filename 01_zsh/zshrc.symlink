@@ -47,3 +47,4 @@ export GPG_TTY=$(tty)
 function diff {
   colordiff -u "$@" | less -RF
 }
+export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"

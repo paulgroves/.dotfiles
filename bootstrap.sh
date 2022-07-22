@@ -1,36 +1,32 @@
-
 #!/usr/bin/env bash
 
 set -e
 
 DOTFILES_ROOT=$(pwd -P)
 
-create_workspace_directory()
-{
+create_workspace_directory() {
 	sudo mkdir -p ~/workspace
 }
 
-install_homebrew()
-{
+install_homebrew() {
 	if test ! $(which brew); then
 		echo "Installing Homebrew..."
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
-    	eval "$(/opt/homebrew/bin/brew shellenv)"
-	else 
+		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zshrc
+		eval "$(/opt/homebrew/bin/brew shellenv)"
+	else
 		echo "Updating Homebrew..."
 		brew update
 	fi
 }
 
-symlink_dotfiles () {
+symlink_dotfiles() {
 	echo "Symlinking dotfiles..."
 
 	local overwrite_all=false backup_all=false skip_all=false
 
-	for source in $(find -H $DOTFILES_ROOT -maxdepth 2 -name "*.symlink")
-	do
+	for source in $(find -H $DOTFILES_ROOT -maxdepth 2 -name "*.symlink"); do
 		local name=$(basename "${source%.*}")
 		local dest="$HOME/.${name//_//}"
 
@@ -43,28 +39,34 @@ symlink_dotfiles () {
 				local current_source=$(readlink $dest)
 
 				if [[ $current_source == $source ]]; then
-					skip=true;
+					skip=true
 				else
 					echo "File already exists: $dest ($(basename "$source")) - what do you want to do? [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all, [s]kip, [S]kip all"
 					read -n 1 action
 
 					case $action in
-						o )
-							overwrite=true;;
-						O )
-							overwrite_all=true;;
-						b )
-							backup=true;;
-						B )
-							backup_all=true;;
-						s )
-							skip=true;;
-						S )
-							skip_all=true;;
-						* )
-							;;
+					o)
+						overwrite=true
+						;;
+					O)
+						overwrite_all=true
+						;;
+					b)
+						backup=true
+						;;
+					B)
+						backup_all=true
+						;;
+					s)
+						skip=true
+						;;
+					S)
+						skip_all=true
+						;;
+					*) ;;
+
 					esac
-				fi				
+				fi
 			fi
 
 			if [[ $overwrite_all == "true" ]] || [[ $overwrite == "true" ]]; then
@@ -77,7 +79,7 @@ symlink_dotfiles () {
 
 			if [[ $skip_all == "false" ]] && [[ $skip == "false" ]]; then
 				ln -s $source $dest
-			fi			
+			fi
 		else
 			ln -s $source $dest
 		fi
@@ -85,13 +87,11 @@ symlink_dotfiles () {
 	done
 }
 
-run_installers()
-{
+run_installers() {
 	source bin/dot | while read -r data; do echo $data; done
 }
 
-authenticate_github_cli()
-{
+authenticate_github_cli() {
 	gh auth login
 }
 
@@ -100,4 +100,4 @@ install_homebrew
 symlink_dotfiles
 run_installers
 authenticate_github_cli
-$HOME/.dotfiles/macos/set-defaults.sh``
+$HOME/.dotfiles/macos/set-defaults.sh$()

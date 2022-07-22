@@ -15,7 +15,7 @@ if [ ! -z "${EXISTING_KEY}" ]; then
     git config --global user.signingkey $key_id
     echo "Key exists: $EXISTING_KEY"
 else
-    echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf 
+    echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >>~/.gnupg/gpg-agent.conf
 
     killall gpg-agent || true
 
@@ -37,6 +37,5 @@ EOF
 
     git config --global user.signingkey $key_id
 
-    gpg --armor --export $key_id > $HOME/.dotfiles/github_pgp_public_key
+    gpg --armor --export $key_id >$HOME/.dotfiles/github_pgp_public_key
 fi
-

@@ -22,7 +22,7 @@ defaults write com.apple.dock persistent-apps -array \
 	"$(dock_item /Applications/Brave\ Browser.app)" \
 	"$(dock_item /Applications/Visual\ Studio\ Code.app)" \
 	"$(dock_item /Applications/GitHub\ Desktop.app)" \
-	"$(dock_item /Applications/Warp.app)" \
+	"$(dock_item /Applications/Hyper.app)" \
 	"$(dock_item /Applications/Paw.app)" \
 	"$(dock_item /Applications/Postico.app)" \
 	"$(dock_item /Applications/Dash.app)" \
@@ -30,8 +30,7 @@ defaults write com.apple.dock persistent-apps -array \
 	"$(dock_item /Applications/Notion.app)" \
 	"$(dock_item /System/Applications/Music.app)" \
 	"$(dock_item /Applications/zoom.us.app)" \
-	"$(dock_item /System/Applications/System\ Preferences.app)" 
-	
+	"$(dock_item /System/Applications/System\ Preferences.app)"
 
 defaults write com.apple.dock persistent-others -array "$(dock_item ~/Downloads)"
 
@@ -52,10 +51,10 @@ mkdir -p "$HOME/Documents/screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Documents/screenshots"
 
 # Clock
-defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\"" 
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
 
 # Save to iCloud by default
-defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "true" 
+defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "true"
 
 # Show File Extensions
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
@@ -71,8 +70,6 @@ apps=(
 	Dock
 )
 
-for app in "${apps[@]}"
-do
+for app in "${apps[@]}"; do
 	killall "$app"
 done
-
